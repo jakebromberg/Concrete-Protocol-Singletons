@@ -9,6 +9,17 @@ How to use
 
 To turn your class into a singleton, import the header file, and add the `<Singleton>` protocol to its interface delcaration. Then, at runtime, call the `+loadSingleton` method on your object to instantiate the singleton.
 
+A quick example:
+
+	#import "NSObject+Singleton.h"
+	
+	@interface MySingletonClass : NSObject <Singleton>
+	
+	// ...
+	
+	@end
+	
+Voilà!
 
 Technical details
 -----------------
