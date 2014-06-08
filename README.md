@@ -14,7 +14,16 @@ A quick example:
 	
 	@interface MySingletonClass : NSObject <Singleton>
 	
-	// ...
+	@end
+	
+
+	@implementation AppDelegate
+
+	- (void)applicationDidFinishLaunching:(UIApplication *)application
+	{
+		[MySingletonClass loadSingleton];
+		NSLog(@"%@", [MySingletonClass sharedObject]);
+	}
 	
 	@end
 	
@@ -22,7 +31,7 @@ Voilà!
 
 ### Technical details ###
 
-I've implemented a "weak" singleton behavior in this library. This means there's nothing in place to prevent more than one instantiation of your singleton class. This library merely provides a way to access your class as a singleton.
+I've implemented a "weak" singleton behavior in this library. This means there's nothing in place to prevent more than one instantiation of your singleton class. This library merely provides a convenient way to access your class as a singleton.
 
 
 ### As an academic exercise, what does this accomplish? ###
