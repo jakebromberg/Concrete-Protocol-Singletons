@@ -3,6 +3,9 @@ Concrete Protocol Singletons
 
 A concrete protocol-based approach to Objective-C singletons. This library provides a protocol for your singleton, and a category on NSObject that implements the singleton behavior. 
 
+### Unwrapping that term, "Concrete Protocol Singletons" ###
+
+The phrase can be broken down into two parts: concrete protocols, and singletons. Singletons are a well-understood software design pattern in which only one instance of an object may exist. Protocols, in the Objective-C sense, refer to an inteface a class must conform to. Protocols as they're conventionally understood cannot have any default, or "concrete," implementations of the methods they specify. The higher esoteric goal of this repository is to demostrate one way one might go about providing a concrete implementation to some provided Objective-C protocol.
 
 ### How to use ###
 
