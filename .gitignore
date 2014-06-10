@@ -1,0 +1,6 @@
+
+*.pcm
+
+*.idx
+
+./Singleton/DerivedData/**
