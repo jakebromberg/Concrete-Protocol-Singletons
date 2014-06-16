@@ -7,7 +7,7 @@
 
 #import "NSObject+Singleton.h"
 
-@implementation NSObject (Singleton)
+@implementation NSObject (JBSingletonImp)
 
 static NSMapTable *sharedObjects;
 
@@ -23,7 +23,7 @@ static NSMapTable *sharedObjects;
 
 + (instancetype)sharedObject
 {
-	if (![self conformsToProtocol:@protocol(XYCSingleton)])
+	if (![self conformsToProtocol:@protocol(JBSingleton)])
 		return nil;
 
 	id sharedObject = [sharedObjects objectForKey:[self class]];

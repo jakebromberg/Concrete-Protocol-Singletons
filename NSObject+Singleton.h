@@ -7,19 +7,25 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol XYCSingleton <NSObject>
+/**
+ *  Together with the JBSingletonImp category, the JBSingleton protocol provides a way for your class to act as a singleton in two easy steps. Simply (1) import this file, and (2) declare your class to conform to `JBSingleton`.
+ */
+@protocol JBSingleton <NSObject>
 
-@required
+/**
+ *  Access the singleton object. Your class need not implement this method, unless you wish to perform custom initializations on your class.
 
+    @return 
+ */
 + (instancetype)sharedObject;
-+ (void)loadSingleton;
 
 @end
 
-
-@interface NSObject (Singleton)
+/**
+ *  Provides a default implementation for the JBSingleton protocol.
+ */
+@interface NSObject (JBSingletonImp)
 
 + (instancetype)sharedObject;
-+ (void)loadSingleton;
 
 @end
