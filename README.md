@@ -1,36 +1,18 @@
-Concrete Protocol Singletons
-============================
+One Step Singletons
+===================
 
-A concrete protocol-based approach to Objective-C singletons. This library provides a protocol for your singleton, and a category on NSObject that implements the singleton behavior. 
+A partially implemented, protocol-based approach to Objective-C singletons.
 
-### Unwrapping that term, "Concrete Protocol Singletons" ###
+### Singletons: One and Done ###
 
-The phrase can be broken down into two parts: concrete protocol, and singletons. Singletons are a well-understood software design pattern in which only one instance of an object may exist. Protocol, in the Objective-C sense, refer to a set of rules a class must conform to. Unlike analogous constructs in other popular languages, protocols may not provide "concrete" implementations for any of the rules they declare: implementations are left to conforming classes. This repository demonstrates how one might simulate partial protocol implentations on objects by checking for conformance at runtime.
+Singletons are a fairly basic pattern to implement in Objective-C code, but you pretty much have to repeat your implementation in every singleton class. Surely this presents an opportunity for abstraction, right?
+
+Correct, and along the way we provide a mechanism for partially implemented protocols in Objective-C. This project provides a JBSingleton interface declaration, plus a default implementation on NSObject. When you call `+sharedObject`, your NSObject sublcass checks that itself conforms to JBSingleton, and returns it's shared instance if so, or `nil` otherwise.
 
 ### How to use ###
 
-To turn your class into a singleton, import the header file, and add the `<Singleton>` protocol to its interface delcaration. Then, at runtime, call the `+loadSingleton` method on your object to instantiate the singleton.
-
-A quick example:
-
-	#import "NSObject+Singleton.h"
-	
-	@interface MySingletonClass : NSObject <Singleton>
-	
-	@end
-	
-
-	@implementation AppDelegate
-
-	- (void)applicationDidFinishLaunching:(UIApplication *)application
-	{
-		[MySingletonClass loadSingleton];
-		NSLog(@"%@", [MySingletonClass sharedObject]);
-	}
-	
-	@end
-	
-Voilà!
+1. Declare that your class conforms to JBSingleton.
+2. Voilà!
 
 ### Technical details ###
 
